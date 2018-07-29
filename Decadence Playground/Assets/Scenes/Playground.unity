@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44693846, g: 0.49682498, b: 0.5750265, a: 1}
+  m_IndirectSpecularColor: {r: 0.44693857, g: 0.49682516, b: 0.5750269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -234,6 +234,18 @@ GameObject:
   m_PrefabParentObject: {fileID: 1714270786498264, guid: 9a4b5723e3cc8cb4b8526c1b3c5bd1a7,
     type: 2}
   m_PrefabInternal: {fileID: 1815991452}
+--- !u!114 &32818264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 32818263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7263a77ecbe11104682c23a5a2ebc915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isHolding: 0
 --- !u!1 &38164345
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,7 +914,7 @@ GameObject:
   - component: {fileID: 688264229}
   m_Layer: 0
   m_Name: Wall (4)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2171,7 +2183,7 @@ GameObject:
   - component: {fileID: 1390641391}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2256,7 +2268,7 @@ GameObject:
   - component: {fileID: 1466352057}
   m_Layer: 0
   m_Name: Wall (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2461,7 +2473,7 @@ GameObject:
   - component: {fileID: 1685698553}
   m_Layer: 0
   m_Name: Wall (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2861,6 +2873,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114457554462893334, guid: 9a4b5723e3cc8cb4b8526c1b3c5bd1a7,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9a4b5723e3cc8cb4b8526c1b3c5bd1a7, type: 2}
   m_IsPrefabParent: 0
@@ -2942,7 +2959,7 @@ GameObject:
   - component: {fileID: 1868672143}
   m_Layer: 0
   m_Name: Wall (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3113,6 +3130,7 @@ GameObject:
   - component: {fileID: 1891670280}
   - component: {fileID: 1891670279}
   - component: {fileID: 1891670282}
+  - component: {fileID: 1891670283}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -3203,6 +3221,19 @@ MonoBehaviour:
   movementX: 0
   movementY: 0
   movementZ: 0
+--- !u!114 &1891670283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1891670277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dadfc17b2cb8eaa41b337731dd639566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 32818263}
+  r: {fileID: 0}
 --- !u!1 &1896801350
 GameObject:
   m_ObjectHideFlags: 0
