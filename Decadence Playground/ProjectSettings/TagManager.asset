@@ -11,6 +11,9 @@ TagManager:
   - Ground
   - Pickable
   - Wall
+  - Key
+  - Grabable
+  - Door
   layers:
   - Default
   - TransparentFX

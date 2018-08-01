@@ -57,6 +57,12 @@ public class Picking : MonoBehaviour {
                 isHolding = true;
                 break;
             }
+            else if(obj.gameObject.tag == "Key" && obj.gameObject != carryingObject)
+            {
+                carryingObject = obj.gameObject;
+                carryingObject.transform.SetParent(transform);
+                carryingObject.GetComponent<Renderer>().enabled = false;
+            }
         }
     }
     void DropIt()

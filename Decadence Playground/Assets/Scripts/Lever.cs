@@ -19,6 +19,11 @@ public class Lever : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        
+    }
+
+    public void ActivateLever()
+    {
         if (bActive)
         {
             //rb.velocity = new Vector3(0, 0, 1);

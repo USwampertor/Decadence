@@ -1,4 +1,4 @@
-﻿Shader "N3K/AlwaysVisible"
+﻿awaShader "N3K/AlwaysVisible"
 {
 	Properties
 	{
