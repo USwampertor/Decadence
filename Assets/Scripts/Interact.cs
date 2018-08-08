@@ -53,9 +53,11 @@ public class Interact : MonoBehaviour {
                         m_GOcarryingObject.transform.position = frontPoint /*m_GOHand.transform.position*/;
                         m_carryingObjectRB.freezeRotation = true;
                         m_carryingObjectRB.constraints = RigidbodyConstraints.FreezePosition;
+                        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), m_GOcarryingObject.GetComponent<Collider>());
                         m_carryingObjectRB.useGravity = false;
                         m_isHolding = true;                     
-                        
+                     
+                        m_
                     }
                     break;
 

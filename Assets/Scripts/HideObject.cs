@@ -9,9 +9,9 @@ public class HideObject : MonoBehaviour {
 
     Vector3 direction;
     public GameObject character;
-
     [SerializeField]
     Renderer r;
+    float m_fTransparency = 0.4f;
 
     // Use this for initialization
     void Start () {
@@ -32,13 +32,13 @@ public class HideObject : MonoBehaviour {
         }
 
         // Mete en un array todas las paredes que hay entre el personaje y la cámara, y les baja el alpha a 0.4
-        hits = Physics.RaycastAll(transform.position, direction, direction.magnitude);
+        hits = Physics.RaycastAll(transform.position, direction, direction.magnitude, 9);
         foreach (var hit in hits)
         {
             if (hit.collider.CompareTag("Wall"))
             {
                 r = hit.collider.gameObject.GetComponent<Renderer>();
-                r.material.color = new Color(r.material.color.r, r.material.color.g, r.material.color.b, 0.4f);
+                r.material.color = new Color(r.material.color.r, r.material.color.g, r.material.color.b, m_fTransparency);
             }
         }
 
