@@ -57,7 +57,7 @@ public class Interact : MonoBehaviour {
                         m_carryingObjectRB.useGravity = false;
                         m_isHolding = true;                     
                      
-                        m_
+                        
                     }
                     break;
 
