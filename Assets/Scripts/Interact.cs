@@ -22,7 +22,8 @@ public class Interact : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 
 
         if (Input.GetButtonDown("Action"))
@@ -42,72 +43,75 @@ public class Interact : MonoBehaviour {
         //Vector3 front = frontPoint - transform.position;
         if (!m_isHolding)
         {
+          if (m_GOInteractedObject != null)
+          {
             switch (m_GOInteractedObject.tag)
             {
-                case "Pickable":
-                    {
-                        Vector3 frontPoint = transform.position + transform.forward * 4;
-                        m_GOcarryingObject = m_GOInteractedObject;
-                        m_carryingObjectRB = m_GOcarryingObject.GetComponent<Rigidbody>();
-                        m_GOcarryingObject.transform.SetParent(transform);
-                        m_GOcarryingObject.transform.position = frontPoint /*m_GOHand.transform.position*/;
-                        m_carryingObjectRB.freezeRotation = true;
-                        m_carryingObjectRB.constraints = RigidbodyConstraints.FreezePosition;
-                        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), m_GOcarryingObject.GetComponent<Collider>());
-                        m_carryingObjectRB.useGravity = false;
-                        m_isHolding = true;                     
-                     
-                        m_
-                    }
-                    break;
+              case "Pickable":
+                {
+                  Vector3 frontPoint = transform.position + transform.forward * 4;
+                  m_GOcarryingObject = m_GOInteractedObject;
+                  m_carryingObjectRB = m_GOcarryingObject.GetComponent<Rigidbody>();
+                  m_GOcarryingObject.transform.SetParent(transform);
+                  m_GOcarryingObject.transform.position = frontPoint /*m_GOHand.transform.position*/;
+                  m_carryingObjectRB.freezeRotation = true;
+                  m_carryingObjectRB.constraints = RigidbodyConstraints.FreezePosition;
+                  Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), m_GOcarryingObject.GetComponent<Collider>());
+                  m_carryingObjectRB.useGravity = false;
+                  m_isHolding = true;
 
-                case "Key":
-                    {
-                        Vector3 frontPoint = transform.position + transform.forward * smallItem;
-                        m_isHolding = true;
-                        m_playerScript.hasKey = true;
-                        m_GOcarryingObject = m_GOInteractedObject;
-                        m_carryingObjectRB = m_GOcarryingObject.GetComponent<Rigidbody>();
-                        m_GOcarryingObject.transform.SetParent(transform);
-                        m_GOcarryingObject.transform.position = frontPoint;
-                        m_carryingObjectRB.freezeRotation = true;
-                        m_carryingObjectRB.constraints = RigidbodyConstraints.FreezePosition;
-                        m_carryingObjectRB.useGravity = false;
-                        m_playerScript.m_interactObject = null;
-                        Instantiate(m_GOFloatingKeyText, transform.position, Quaternion.Euler(0, 45, 0), transform);
-                        //Destroy(carryingObject);
-                    }
-                    break;
-                case "Grabable":
-                    {
-                        Vector3 frontPoint = transform.position + transform.forward * biItem;
-                        m_isHolding = true;
-                        m_isGrabbing = true;
-                        m_GOcarryingObject = m_GOInteractedObject;
-                        m_carryingObjectRB = m_GOcarryingObject.GetComponent<Rigidbody>();
-                        transform.LookAt(m_GOcarryingObject.transform);
+                  //m_ract
+                }
+                break;
 
-                        m_GOcarryingObject.transform.SetParent(transform);
-                        //m_GOcarryingObject.transform.position = frontPoint;
-                        m_carryingObjectRB.freezeRotation = true;
-                        m_carryingObjectRB.constraints = RigidbodyConstraints.FreezePosition;
-                        m_carryingObjectRB.useGravity = false;
-                        m_playerScript.movState = CharControl.PLAYER_STATE.GRABING;
-                    }
-                    break;
-                case "Door":
-                    {
-                        Instantiate(m_GODoorText, transform.position, Quaternion.Euler(0, 45, 0), transform);
-                    }
-                    break;
-                case "Interactable":
-                    {
-                        
-                        m_leverScript = m_GOInteractedObject.GetComponent<Lever>();
-                        m_leverScript.ActivateLever();
-                    }
-                    break;
+              case "Key":
+                {
+                  Vector3 frontPoint = transform.position + transform.forward * smallItem;
+                  m_isHolding = true;
+                  m_playerScript.hasKey = true;
+                  m_GOcarryingObject = m_GOInteractedObject;
+                  m_carryingObjectRB = m_GOcarryingObject.GetComponent<Rigidbody>();
+                  m_GOcarryingObject.transform.SetParent(transform);
+                  m_GOcarryingObject.transform.position = frontPoint;
+                  m_carryingObjectRB.freezeRotation = true;
+                  m_carryingObjectRB.constraints = RigidbodyConstraints.FreezePosition;
+                  m_carryingObjectRB.useGravity = false;
+                  m_playerScript.m_interactObject = null;
+                  Instantiate(m_GOFloatingKeyText, transform.position, Quaternion.Euler(0, 45, 0), transform);
+                  //Destroy(carryingObject);
+                }
+                break;
+              case "Grabable":
+                {
+                  Vector3 frontPoint = transform.position + transform.forward * biItem;
+                  m_isHolding = true;
+                  m_isGrabbing = true;
+                  m_GOcarryingObject = m_GOInteractedObject;
+                  m_carryingObjectRB = m_GOcarryingObject.GetComponent<Rigidbody>();
+                  transform.LookAt(m_GOcarryingObject.transform);
+
+                  m_GOcarryingObject.transform.SetParent(transform);
+                  //m_GOcarryingObject.transform.position = frontPoint;
+                  m_carryingObjectRB.freezeRotation = true;
+                  m_carryingObjectRB.constraints = RigidbodyConstraints.FreezePosition;
+                  m_carryingObjectRB.useGravity = false;
+                  m_playerScript.movState = CharControl.PLAYER_STATE.GRABING;
+                }
+                break;
+              case "Door":
+                {
+                  Instantiate(m_GODoorText, transform.position, Quaternion.Euler(0, 45, 0), transform);
+                }
+                break;
+              case "Interactable":
+                {
+
+                  m_leverScript = m_GOInteractedObject.GetComponent<Lever>();
+                  m_leverScript.ActivateLever();
+                }
+                break;
             }
+          }
         }
         else if (m_isHolding)
         {
