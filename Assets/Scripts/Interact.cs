@@ -47,6 +47,7 @@ public class Interact : MonoBehaviour {
           {
             switch (m_GOInteractedObject.tag)
             {
+<<<<<<< HEAD
               case "Pickable":
                 {
                   Vector3 frontPoint = transform.position + transform.forward * 4;
@@ -59,6 +60,24 @@ public class Interact : MonoBehaviour {
                   Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), m_GOcarryingObject.GetComponent<Collider>());
                   m_carryingObjectRB.useGravity = false;
                   m_isHolding = true;
+=======
+                case "Pickable":
+                    {
+                        Vector3 frontPoint = transform.position + transform.forward * 4;
+                        m_GOcarryingObject = m_GOInteractedObject;
+                        m_carryingObjectRB = m_GOcarryingObject.GetComponent<Rigidbody>();
+                        m_GOcarryingObject.transform.SetParent(transform);
+                        m_GOcarryingObject.transform.position = frontPoint /*m_GOHand.transform.position*/;
+                        m_carryingObjectRB.freezeRotation = true;
+                        m_carryingObjectRB.constraints = RigidbodyConstraints.FreezePosition;
+                        Physics.IgnoreCollision(gameObject.GetComponent<Collider>(), m_GOcarryingObject.GetComponent<Collider>());
+                        m_carryingObjectRB.useGravity = false;
+                        m_isHolding = true;                     
+                     
+                        
+                    }
+                    break;
+>>>>>>> e5bbf24562dab3a475a39bede6cd452be7750ea4
 
                   //m_ract
                 }

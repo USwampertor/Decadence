@@ -11,6 +11,7 @@ public class Lever : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        //Consigue los componentes.
         rb = door.GetComponent<Rigidbody>();
         renderer = door.GetComponent<Renderer>();
         boxColl = door.GetComponent<Collider>();
@@ -24,6 +25,7 @@ public class Lever : MonoBehaviour {
 
     public void ActivateLever()
     {
+        //Si la palanca está activada desactiva el renderer y el collider del objeto con el que está enlazada, en caso contrario los activa.
         if (bActive)
         {
             //rb.velocity = new Vector3(0, 0, 1);
@@ -38,19 +40,20 @@ public class Lever : MonoBehaviour {
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag=="Player")
-        {
-            Debug.Log("Toqué la palanca.");
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if(collision.gameObject.tag=="Player")
+    //    {
+    //        Debug.Log("Toqué la palanca.");
+    //    }
+    //}
 
-    private void OnTriggerStay(Collider collision)
+    private void OnCollisionStay(Collision collision)
     {
+        //Si el jugador está en contacto con la palanca y se presiona el botón de acción, la palanca se activa.
         if(collision.gameObject.tag=="Player" && Input.GetButtonDown("Action"))
         {
-            Debug.Log("Se usó la palanca.");
+            //Debug.Log("Se usó la palanca.");
             bActive = !bActive;
         }
     }
